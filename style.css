@@ -1,0 +1,186 @@
+:root {
+  --desk: #dfe8ee; /* graph paper background */
+  --grid: #c3d2dd; /* graph paper lines */
+  --paper: #fdfdfb; /* the exam sheet */
+  --ink: #1b2a4a; /* dark blue pen ink */
+  --margin-red: #e07a7a; /* red margin line, like school paper */
+
+  --excellent: #1e7f5c; /* stamp colors */
+  --passed: #2b4ea2;
+  --failed: #c62f3b;
+  --invalid: #7a4fa3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background-color: var(--desk);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  font-family: "Courier Prime", "Courier New", monospace;
+  color: var(--ink);
+}
+
+.paper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  padding: 36px 32px 32px 64px;
+  background-color: var(--paper);
+  border-radius: 3px;
+  box-shadow:
+    0 10px 0 -4px #cdd8e0,
+    0 14px 24px rgba(27, 42, 74, 0.25);
+  transform: rotate(-1.2deg);
+}
+.paper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 44px;
+  width: 2px;
+  background-color: var(--margin-red);
+}
+
+h1 {
+  font-family: "Permanent Marker", cursive;
+  font-weight: 400;
+  font-size: 2.4rem;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin: 6px 0 28px;
+  font-size: 0.95rem;
+}
+
+.line {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.written {
+  flex: 1;
+  min-height: 1.6em;
+  border-bottom: 2px solid var(--ink);
+  font-family: "Permanent Marker", cursive;
+  font-size: 1.2rem;
+  word-break: break-word;
+}
+
+.message {
+  min-height: 3em;
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.stamp {
+  width: fit-content;
+  margin: 16px auto 24px;
+  padding: 8px 22px;
+  border: 5px double currentColor;
+  border-radius: 8px;
+  font-family: "Permanent Marker", cursive;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transform: rotate(-8deg);
+  opacity: 0.88;
+}
+
+.hidden {
+  display: none;
+}
+
+.stamp.excellent {
+  color: var(--excellent);
+}
+.stamp.passed {
+  color: var(--passed);
+}
+.stamp.failed {
+  color: var(--failed);
+}
+.stamp.invalid {
+  color: var(--invalid);
+}
+
+.stamp.slam {
+  animation: slam 0.35s ease-out;
+}
+
+@keyframes slam {
+  from {
+    transform: rotate(-8deg) scale(2.2);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(-8deg) scale(1);
+    opacity: 0.88;
+  }
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background-color: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 4px;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2b3f6b;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--margin-red);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp.slam {
+    animation: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .paper {
+    padding: 28px 20px 24px 48px;
+  }
+  .paper::before {
+    left: 32px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .stamp {
+    font-size: 1.7rem;
+  }
+}

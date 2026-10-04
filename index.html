@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Score Checker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="paper">
+      <h1>Quiz Checker</h1>
+      <p class="subtitle">Enter your score. Get it stamped.</p>
+
+      <div class="line">
+        <span class="label">Name:</span
+        ><span id="nameOut" class="written">&nbsp;</span>
+      </div>
+      <div class="line">
+        <span class="label">Score:</span
+        ><span id="scoreOut" class="written">&nbsp;</span>
+      </div>
+
+      <p id="message" class="message">Press the button to begin.</p>
+
+      <div id="stamp" class="stamp hidden"></div>
+
+      <button id="startBtn" type="button">Check my score</button>
+
+      <p>ps. Click the "Check my score"</p>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
